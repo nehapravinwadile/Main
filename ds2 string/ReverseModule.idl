@@ -1,0 +1,32 @@
+module ReverseModule
+{
+interface Reverse
+{
+string reverse_string(in string str);
+};
+};
+
+
+//idlj.fall ReverseModule.idl
+//javac *.java ReverseModule/*.java
+//orbd -ORBInitialPort 1050 
+
+//tnameserv -ORBInitialPort 1050 &
+//javac ReverseModule/*.java ReverseImpl.java ReverseServer.java ReverseClient.java
+//java ReverseServer -ORBInitialPort 1050 -ORBInitialHost localhost
+
+//java ReverseClient -ORBInitialPort 1050 -ORBInitialHost localhost
+
+
+//# Terminal 1 - Naming Service
+tnameserv -ORBInitialPort 1050 &
+
+# Terminal 2 - Compile
+idlj -fall ReverseModule.idl
+javac ReverseModule/*.java ReverseImpl.java ReverseServer.java ReverseClient.java
+
+# Terminal 3 - Run Server
+java ReverseServer -ORBInitialPort 1050 -ORBInitialHost localhost
+
+# Terminal 4 - Run Client
+java ReverseClient -ORBInitialPort 1050 -ORBInitialHost localhost
