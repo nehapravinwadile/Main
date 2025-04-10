@@ -1,0 +1,25 @@
+module CalculatorApp {
+ interface Calculator {
+ float add(in float a, in float b);
+ float subtract(in float a, in float b);
+ float multiply(in float a, in float b);
+ float divide(in float a, in float b);
+ };
+};
+
+
+//cd Calculator
+//idlj -fall Calculator.idl
+//tnameserv -ORBInitialPort 1050 
+
+// to install java 
+//sudo apt update
+//sudo apt install openjdk-8-jdk
+//sudo update-alternatives --config java
+//java -version
+//idlj -version
+
+//javac *. java  CalculatorApp/*.java
+//java CalculatorServer -ORBInitialPort 1050 -ORBInitialHost localhost
+//java CalculatorClient -ORBInitialPort 1050 -ORBInitialHost localhost
+
